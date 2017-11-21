@@ -60,6 +60,9 @@ void pre_auton()
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
+/*	Autonomous Objectives:
+ *	- Move arm into position due to excessive torque (excessive time to move)
+ */
 task autonomous()
 {
   // ..........................................................................
@@ -67,7 +70,10 @@ task autonomous()
   // ..........................................................................
 
   // Remove this function call once you have "real" code.
-  AutonomousCodePlaceholderForTesting();
+//  AutonomousCodePlaceholderForTesting();
+
+	motor[armRight] = 127;
+	motor[armLeft] = 127;
 }
 
 /*---------------------------------------------------------------------------*/

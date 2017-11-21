@@ -1,5 +1,5 @@
 #pragma config(Motor,  port2,           frontRight,    tmotorVex393_MC29, openLoop)
-#pragma config(Motor,  port3,           frontLeft,     tmotorVex393_MC29, openLoop, reversed)
+#pragma config(Motor,  port3,           frontLeft,     tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port4,           backRight,     tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port5,           backLeft,      tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port6,           armRight,      tmotorVex393_MC29, openLoop)
@@ -101,8 +101,8 @@ task usercontrol()
 
     if (lDrive > 5 || lDrive < -5)
     {
-    	motor[frontLeft] = lDrive;
-    	motor[backLeft] = lDrive;
+    	motor[frontLeft] = -(lDrive);
+    	motor[backLeft] = -(lDrive);
     }
     else
     {
@@ -112,8 +112,8 @@ task usercontrol()
 
     if (rDrive > 5 || rDrive < -5)
     {
-    	motor[frontRight] = rDrive;
-    	motor[backRight] = rDrive;
+    	motor[frontRight] = -(rDrive);
+    	motor[backRight] = -(rDrive);
     }
     else
     {
@@ -124,13 +124,13 @@ task usercontrol()
     // Arm Operations
     if (vexRT[Btn6U] == 1)
     {
-    	motor[armRight] = 127;
-    	motor[armLeft] = 127;
+    	motor[armRight] = -127;
+    	motor[armLeft] = -127;
     }
     else if (vexRT[Btn6D] == 1)
     {
-    	motor[armRight] = -127;
-    	motor[armLeft] = -127;
+    	motor[armRight] = 127;
+    	motor[armLeft] = 127;
     }
     else
     {

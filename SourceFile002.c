@@ -72,8 +72,8 @@ task autonomous()
   // Remove this function call once you have "real" code.
 //  AutonomousCodePlaceholderForTesting();
 
-	motor[armRight] = 127;
-	motor[armLeft] = 127;
+	motor[armRight] = -127;
+	motor[armLeft] = -127;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -107,8 +107,8 @@ task usercontrol()
 
     if (lDrive > 5 || lDrive < -5)
     {
-    	motor[frontLeft] = -(lDrive);
-    	motor[backLeft] = -(lDrive);
+    	motor[frontLeft] = lDrive;
+    	motor[backLeft] = lDrive;
     }
     else
     {
@@ -118,8 +118,8 @@ task usercontrol()
 
     if (rDrive > 5 || rDrive < -5)
     {
-    	motor[frontRight] = -(rDrive);
-    	motor[backRight] = -(rDrive);
+    	motor[frontRight] = rDrive;
+    	motor[backRight] = rDrive;
     }
     else
     {
@@ -128,12 +128,12 @@ task usercontrol()
     }
 
     // Arm Operations
-    if (vexRT[Btn6U] == 1)
+    if (vexRT[Btn6D] == 1)
     {
     	motor[armRight] = -127;
     	motor[armLeft] = -127;
     }
-    else if (vexRT[Btn6D] == 1)
+    else if (vexRT[Btn6U] == 1)
     {
     	motor[armRight] = 127;
     	motor[armLeft] = 127;
